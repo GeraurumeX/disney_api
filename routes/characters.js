@@ -31,19 +31,52 @@ router.get('/:id', (req, res) => {
 
 // CRUD
 // Create Character  /api_disney/characters
+//router.post('/', (req, res) => {
+    //Character.create({
+        //image: req.body.image,
+        //name: req.body.name,
+        //age: req.body.age,
+        //weight: req.body.weight,
+        //life_story: req.body.life_story
+    //}).then(character => {
+        //res.json(character);
+    //}).catch(err => {
+        //res.json(err);
+    //})
+//});
+
+// Create Character include movie  /api_disney/movies
 router.post('/', (req, res) => {
     Character.create({
-        image: req.body.image,
+        image_character: req.body.image_character,
         name: req.body.name,
         age: req.body.age,
         weight: req.body.weight,
         life_story: req.body.life_story
-    }).then(character => {
-        res.json(character);
+    }).then(movie => {
+        Movie.create({
+            image: req.body.image,
+            title: req.body.title,
+            release: req.body.release,
+            average: req.body.average  
+        }).then(character => {
+            res.json(character);
+        })
     }).catch(err => {
         res.json(err);
     })
 });
+
+
+
+
+
+
+
+
+
+
+
 
 // UPDATE Character  /api_disney/characters/:id
 router.patch('/:id', (req, res) => {

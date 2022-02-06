@@ -1,10 +1,14 @@
 const express = require('express');
 
+const router = express.Router();
+
 const Character = require('../database/models/Character');
 const Movie = require('../database/models/Movie');
 const Genre = require('../database/models/Genre');
 
-const router = express.Router();
+
+
+
 
 
 // Movie list     /api_disney/movies
@@ -20,18 +24,41 @@ router.get('/', (req, res) => {
 
 // CRUD
 // Create Movie  /api_disney/movies
-router.post('/', (req, res) => {
-    Movie.create({
-        image: req.body.image,
-        title: req.body.title,
-        release: req.body.release,
-        average: req.body.average
-    }).then(movie => {
-        res.json(movie);
-    }).catch(err => {
-        res.json(err);
-    })
-});
+//router.post('/', (req, res) => {
+    //Movie.create({
+        //image: req.body.image,
+        //title: req.body.title,
+        //release: req.body.release,
+        //average: req.body.average,
+    //}).then(movie => {
+        //res.json(movie);
+    //}).catch(err => {
+        //res.json(err);
+    //})
+//});
+
+
+// Create Movie include genre  /api_disney/movies
+//router.post('/', (req, res) => {
+   // Movie.create({
+        //image: req.body.image,
+        //title: req.body.title,
+        //release: req.body.release,
+        //average: req.body.average
+    //}).then(movie => {
+        //Genre.create({
+            //name: req.body.name,
+            //image_genre: req.body.image_genre
+        //}).then(genre =>{
+            //res.json(movie);
+        //})
+    //}).catch(err => {
+        //res.json(err);
+    //})
+//});
+
+
+
 
 
 

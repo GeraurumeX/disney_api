@@ -19,12 +19,12 @@ Genre.init({
             }
         }
     },
-    image: {
+    image_genre: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
             notNull: {
-                msg: "The image field can't be null"
+               msg: "The image field can't be null"
             }
         }
     }

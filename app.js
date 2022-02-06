@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const { Sequelize } = require('sequelize');
 const sequelize = require('./database/db');
 require('./database/associations');
@@ -12,8 +12,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
 // Routes
@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
 
 app.use('/api_disney/characters', require('./routes/characters'));
 app.use('/api_disney/movies', require('./routes/movies'));
-app.use('/api_disney/genre', require('./routes/genres'));
+app.use('/api_disney/genres', require('./routes/genres'));
 
 
 

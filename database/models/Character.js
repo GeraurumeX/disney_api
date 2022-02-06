@@ -6,7 +6,7 @@ const sequelize = require('../db');
 class Character extends Model {}
 
 Character.init({
-    image: {
+    image_character: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
